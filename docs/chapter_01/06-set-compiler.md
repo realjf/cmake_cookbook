@@ -34,3 +34,23 @@ CMake提供了额外的变量来与编译器交互:
 - CMAKE_COMPILER_IS_GNU<LANG> :如果语言 <LANG> 是GNU编译器集合的一部分， 则将此逻辑变量设置为 TRUE 。 注意变量名的 <LANG> 部分遵循GNU约定： C语言为 CC , C++语言为 CXX , Fortran语言为 G77 。
 - CMAKE_<LANG>_COMPILER_VERSION :此变量包含一个字符串， 该字符串给定语言的编译器版本。 版本信息在 major[.minor[.patch[.tweak]]] 中给出。 但是， 对于 CMAKE_<LANG>_COMPILER_ID ， 不能保证所有编译器或语言都定义了此变量
 
+配置如下示例：
+```
+cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
+project(recipe-06 LANGUAGES C CXX)
+
+message(STATUS "Is the C++ compiler loaded? ${CMAKE_CXX_COMPILER_LOADED}")
+
+if(CMAKE_CXX_COMPILER_LOADED)
+    message(STATUS "The C++ compiler ID is: ${CMAKE_CXX_COMPILER_ID}")
+    message(STATUS "Is the C++ from GNU? ${CMAKE_COMPILER_IS_GNUCXX}")
+    message(STATUS "The C++ compiler version is: ${CMAKE_CXX_COMPILER_VERSION}")
+endif()
+
+message(STATUS "Is the C compiler loaded? ${CMAKE_C_COMPILER_LOADED}")
+if(CMAKE_C_COMPILER_LOADED)
+message(STATUS "The C compiler ID is: ${CMAKE_C_COMPILER_ID}")
+message(STATUS "Is the C from GNU? ${CMAKE_COMPILER_IS_GNUCC}")
+message(STATUS "The C compiler version is: ${CMAKE_C_COMPILER_VERSION}")
+endif()
+```
