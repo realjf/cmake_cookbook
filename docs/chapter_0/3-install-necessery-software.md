@@ -48,7 +48,7 @@ conda config --set changeps1 no
 conda update --all
 conda clean -tipy
 # 安装conda之后，可以执行如下命令安装python模块
-conda create -n cmake-cookbook python=3
+conda create -n cmake-cookbook python=<your python version>
 conda activate cmake-cookbook
 conda install --file requirements.txt
 # 执行conda deactivate退出conda环境
