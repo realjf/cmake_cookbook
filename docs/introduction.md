@@ -27,5 +27,22 @@ CMake管理的项目工作时序图如下：
 - 第一章，从简单的可执行文件到库，如何配置和使用cmake构建简单的可执行文件和库
 - 第二章，检测环境，如何使用简单的cmake命令与操作系统和处理器体系结构交互
 - 第三章，检测外部库和程序，如何简化对项目依赖项的检测
+- 第四章，创建和运行测试，解释如何利用CMake和CTest的功能来定义和运行测试
+- 第五章，配置时操作和构建时操作，如何使用CMake在构建过程的不同阶段执行定制化操作
+- 第六章，生成源码，CMake命令可自动生成源码
+- 第七章，结构化项目，用于组织您的项目，使它们更易于维护
+- 第八章，超级构建，解释了CMake超级构建模式，用于管理关键项目的依赖关系
+- 第九章，混合语言项目，构建不同编程语言混合的项目
+- 第十章，编写一个安装程序，使用CMake安装项目
+- 第十一章，打包项目，如何使用CPack生成源文件，并将源文件打包，以及构建用于发布的python和conda包
+- 第十二章，生成文档， 如何使用CMake也生成代码的文档
+- 第十三章，选择生成器和交叉编译， 如何使用CMake交叉编译项目
+- 第十四章，测试面板， 如何将测试结果报告到在面板上
+- 第十五章，将项目移植到CMake中， 将展示实践示例、 注意事项和一些技巧， 这些将帮助您将项目移植到基于CMake的构建系统中
 
+
+### 参考文献
+- [https://cmake.org/documentation/](https://cmake.org/documentation/)
+- [https://github.com/onqtam/awesome-cmake](https://github.com/onqtam/awesome-cmake)
+- [Craig Scott的《Professional CMake》](https://crascit.com/professionalcmake/)
 
