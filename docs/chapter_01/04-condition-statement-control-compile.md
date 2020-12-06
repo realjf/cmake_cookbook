@@ -13,7 +13,7 @@
 
 CMakeLists.txt文件内容如下：
 
-```text
+```cmake
 
 # 首先定义cmake最低版本、项目名称和支持语言
 cmake_minimum_required(VERSION 3.5 FATAL_ERROR)

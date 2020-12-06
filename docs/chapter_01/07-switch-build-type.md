@@ -9,20 +9,20 @@ CMake可以配置构建类型， 例如： Debug、 Release等。 配置时， �
 
 ### 准备
 首先定义最低cmake版本、项目名称和支持的语言
-```text
+```cmake
 cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 project(recipe-07 LANGUAGES C CXX)
 ```
 
 然后，设置一个默认的构建类型，并打印一条消息。
-```text
+```cmake
 if(NOT CMAKE_BUILD_TYPE)
 set(CMAKE_BUILD_TYPE Release CACHE STRING "Build type" FORCE)
 endif()
 message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
 ```
 最后，打印出cmake设置的相应编译标志：
-```text
+```cmake
 message(STATUS "C flags, Debug configuration: ${CMAKE_C_FLAGS_DEBUG}")
 message(STATUS "C flags, Release configuration: ${CMAKE_C_FLAGS_RELEASE}")
 

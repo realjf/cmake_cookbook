@@ -12,7 +12,7 @@ CMake为调整或扩展编译器标志提供了很大的灵活性， 您可以�
 
 
 CMakeLists.txt
-```text
+```cmake
 cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 
 project(recipe-08 LANGUAGES CXX)
@@ -106,7 +106,7 @@ cmake -D CMAKE_CXX_FLAGS="-fno-exceptions -fno-rtti" ..
 ### 更多
 最典型的方法是将所需编译器标志列表附加到每个配置类型CMake变量 CMAKE_<LANG>_FLAGS_<CONFIG> 。 标志确定设置为给定编译器有效的标志， 因此将包含在 ifendif 子句中， 用于检查 CMAKE_<LANG>_COMPILER_ID 变量
 
-```text
+```cmake
 if(CMAKE_CXX_COMPILER_ID MATCHES GNU)
 list(APPEND CMAKE_CXX_FLAGS "-fno-rtti" "-fno-exceptions")
 
@@ -122,7 +122,7 @@ endif()
 ```
 更细粒度的方法是， 不修改 CMAKE_<LANG>_FLAGS_<CONFIG> 变量， 而是定义特定的标志列表
 
-```text
+```cmake
 set(COMPILER_FLAGS)
 set(COMPILER_FLAGS_DEBUG)
 set(COMPILER_FLAGS_RELEASE)
@@ -142,7 +142,7 @@ list(APPEND CXX_FLAGS_RELEASE "-O3" "-Wno-unused")
 endif()
 ```
 稍后， 使用生成器表达式来设置编译器标志的基础上， 为每个配置和每个目标生成构建系统
-```text
+```cmake
 target_compile_option(compute-areas
 PRIVATE
 ${CXX_FLAGS}

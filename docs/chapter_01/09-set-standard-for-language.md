@@ -34,7 +34,7 @@ farm.subscribe("CAT", [](const std::string & n) { return std::make_unique<Cat>(n
 CMakeLists.txt如下：
 
 
-```text
+```cmake
 # set minimum cmake version
 cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 

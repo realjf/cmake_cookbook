@@ -63,7 +63,7 @@ std::ostream &Message::printObject(std::ostream &os){
 ```
 
 CMakeLists.txt文件内容如下：
-```text
+```cmake
 # 首先，设置cmake所需的最低版本，如果使用CMake版本低于该版本，则会发出致命错误
 cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 
@@ -179,7 +179,7 @@ target_link_libraries(hello-world message-static)
 
 是否可以让CMake生成同名的两个库？ 换句话说， 它们都可以被称为 message ， 而不是 message-static 和 message-share d吗？ 我们需要修改这两个目标的属性：
 
-```text
+```cmake
 add_library(message-shared SHARED $<TARGET_OBJECTS:message-objs>)
 
 set_target_properties(message-shared PROPERTIES OUTPUT_NAME "message")

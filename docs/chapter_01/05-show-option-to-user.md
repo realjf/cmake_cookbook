@@ -29,7 +29,7 @@ option(<option_variable> "help string" [initial value])
 ### 更多
 有时选项之间会有依赖的情况。 示例中， 我们提供生成静态库或动态库的选项。 但是， 如果没有将 USE_LIBRARY 逻辑设置为 ON ， 则此选项没有任何意义。 CMake提供 cmake_dependent_option() 命令用来定义依赖于其他选项的选项
 
-```text
+```cmake
 include(CMakeDependentOption)
 
 # second option depends on the value of the first
