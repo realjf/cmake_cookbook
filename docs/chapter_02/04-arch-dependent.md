@@ -83,5 +83,42 @@ CMAKE_SIZEOF_VOID_P为void指针的大小。
 而后者将包含当前正在为其构建的cpu的名称。这是一个细微的差别，在交叉编译时起着非常重要的作用。
 
 
+```cpp
+#if defined(__i386) || defined(__i386__) || defined(_M_IX86)
+#error cmake_arch i386
+#elif defined(__x86_64) || defined(__x86_64__) || defined(__amd64) ||
+defined(_M_X64)
+#error cmake_arch x86_64
+#endif
+```
+这种策略也是检测目标处理器体系结构的推荐策略， 因为CMake似乎没有提供可移植的内在解决方案。
+另一种选择， 将只使用CMake， 完全不使用预处理器， 代价是为每种情况设置不同的源文件， 然后使
+用 target_source 命令将其设置为可执行目标 arch-dependent 依赖的源文件
+
+```cmake
+add_executable(arch-dependent "")
+
+if(CMAKE_HOST_SYSTEM_PROCESSOR MATCHES "i386")
+message(STATUS "i386 architecture detected")
+target_sources(arch-dependent
+PRIVATE
+arch-dependent-i386.cpp
+)
+elseif(CMAKE_HOST_SYSTEM_PROCESSOR MATCHES "i686")
+message(STATUS "i686 architecture detected")
+target_sources(arch-dependent
+PRIVATE
+arch-dependent-i686.cpp
+)
+elseif(CMAKE_HOST_SYSTEM_PROCESSOR MATCHES "x86_64")
+message(STATUS "x86_64 architecture detected")
+target_sources(arch-dependent
+PRIVATE
+arch-dependent-x86_64.cpp
+)
+else()
+message(STATUS "host processor architecture is unknown")
+endif()
+```
 
 
